@@ -10,9 +10,11 @@ On Windows, also install [GitHub Desktop](https://desktop.github.com/) and use G
 
 Open a terminal:
 
-    vagrant up
-    vagrant ssh
-    cd /vagrant/labs
+```
+vagrant up
+vagrant ssh
+cd /vagrant/labs
+```
 
 Do your Git clone in the Guest VM and edit files using your IDE/Editor on the
 Host.
