@@ -11,10 +11,16 @@ add-apt-repository -y ppa:openjdk-r/ppa
 apt-get update
 
 # Install cf client, curl, git, jq (json parser/prettyfier), siege (HTTP load tester)
-apt-get install -y cf-cli curl git grc jq openjdk-8-jdk siege
+apt-get install -y cf-cli curl git grc jq ifupdown-extra openjdk-8-jdk siege
 
 # install mysql server without root password
 apt-get -y install mysql-server
+
+# set static routes for bosh-lite containers networks
+ROUTE="/sbin/route add -net 10.244.0.0/16 gw 192.168.50.4"
+# add to rc.local only if it's not already there
+if ! grep "$ROUTE" /etc/rc.local; then sed "$ i $ROUTE || true" /etc/rc.local | tee /etc/rc.local; fi;
+$ROUTE || true
 
 # call user-config.sh as vagrant user
 su -c "source /vagrant/vm-config/user-config.sh" vagrant
