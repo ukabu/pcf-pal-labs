@@ -24,6 +24,9 @@ Vagrant.configure("2") do |config|
     vb.memory = "1024"
     vb.cpus = 2
   end
+  config.vm.provision "shell", run: "always", inline: <<-SHELL
+    /sbin/route add -net 10.244.0.0/16 gw 192.168.50.4
+  SHELL
 
   config.vm.provision "shell", path: "vm-config/provision.sh"
 end
