@@ -11,7 +11,7 @@ add-apt-repository -y ppa:openjdk-r/ppa
 apt-get update
 
 # Install cf client, curl, git, jq (json parser/prettyfier), siege (HTTP load tester)
-apt-get install -y cf-cli curl git grc jq openjdk-8-jdk siege
+apt-get install -y cf-cli curl git grc jq openjdk-8-jdk siege unzip zip
 
 # install mysql server without root password
 apt-get -y install mysql-server
