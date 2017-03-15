@@ -23,8 +23,8 @@ Vagrant.configure("2") do |config|
     #vb.gui = true
 
     # Customize the amount of memory on the VM:
-    vb.memory = "1024"
-    vb.cpus = 2
+    vb.memory = "1536"
+    vb.cpus = 1
   end
   config.vm.provision "shell", run: "always", inline: <<-SHELL
     /sbin/route add -net 10.244.0.0/16 gw 192.168.50.4
