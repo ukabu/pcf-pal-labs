@@ -21,6 +21,12 @@ apt-get update
 # Install cf client, curl, git, jq (json parser/prettyfier), siege (HTTP load tester)
 apt-get install -y cf-cli curl git grc httpie jq openjdk-8-jdk mongodb-org rabbitmq-server siege unzip zip
 
+# configure rabbitmq, add a user that can be used remotely
+rabbitmq-plugins enable rabbitmq_management
+rabbitmqctl add_user pal palpass
+rabbitmqctl set_permissions -p / pal ".*" ".*" ".*"
+rabbitmqctl set_user_tags pal administrator
+
 # install mysql server without root password
 apt-get -y install mysql-server
 
