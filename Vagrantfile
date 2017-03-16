@@ -20,6 +20,10 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 8081, host: 8081
   config.vm.network "forwarded_port", guest: 15672, host: 15672 # rabbitmq_management
 
+  if Vagrant::Util::Platform.windows? && system("net session", :out => File::NULL, :err => File::NULL) then
+    config.vm.synced_folder ".", "/vagrant", type: "smb"
+  end
+
   config.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
     #vb.gui = true
