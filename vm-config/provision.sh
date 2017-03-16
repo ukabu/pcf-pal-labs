@@ -30,5 +30,8 @@ rabbitmqctl set_user_tags pal administrator
 # install mysql server without root password
 apt-get -y install mysql-server
 
+# Make sure cartificate authority are up-to-date
+update-ca-certificates -f
+
 # call user-config.sh as vagrant user
 su -c "source /vagrant/vm-config/user-config.sh" vagrant
