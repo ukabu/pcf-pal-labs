@@ -1,5 +1,7 @@
 #!/bin/bash -x
 
+echo "alias gw=./gradlew" >> ~/.bashrc
+
 # make private bin directory
 [ -d ~/bin ] || mkdir ~/bin
 
