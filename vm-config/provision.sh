@@ -19,7 +19,7 @@ add-apt-repository -y ppa:openjdk-r/ppa
 apt-get update
 
 # Install cf client, curl, git, jq (json parser/prettyfier), siege (HTTP load tester)
-apt-get install -y cf-cli curl git grc httpie jq openjdk-8-jdk mongodb-org rabbitmq-server siege unzip zip
+apt-get install -y build-essential cf-cli curl git grc httpie jq openjdk-8-jdk mongodb-org nginx rabbitmq-server siege unzip zip
 
 # configure rabbitmq, add a user that can be used remotely
 rabbitmq-plugins enable rabbitmq_management
@@ -29,6 +29,15 @@ rabbitmqctl set_user_tags pal administrator
 
 # install mysql server without root password
 apt-get -y install mysql-server
+
+# download and install redis
+pushd /tmp
+  wget -O- http://download.redis.io/redis-stable.tar.gz | tar -zxvf -
+  pushd redis-stable
+    make
+    make install
+  popd
+popd
 
 # Make sure cartificate authority are up-to-date
 update-ca-certificates -f
