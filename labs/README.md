@@ -23,3 +23,12 @@ fly set-pipeline -t concourse-lab -p attendee-service -c ci/pipeline.yml -l ci/p
 # trigger job
 fly trigger-job -t concourse-lab -j [pipeline]/[task]
 ```
+
+### Minio Client
+```
+# Set configuration to Amazon S3. Replace ACCESS_KEY and PRIVATE_ACCESS_KEY with the values for you S3 account
+mc config host add s3 https://s3.amazonaws.com ACCESS_KEY PRIVATE_ACCESS_KEY
+
+# Copy a local file to a bucket. Replace BUCKET with your bucket name.
+mc cp albums.csv s3/BUCKET/
+```
