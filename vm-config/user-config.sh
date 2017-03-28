@@ -1,7 +1,5 @@
 #!/bin/bash -x
 
-echo "alias gw=./gradlew" >> ~/.bashrc
-
 # make private bin directory
 [ -d ~/bin ] || mkdir ~/bin
 
@@ -23,3 +21,6 @@ pushd ~/bin
   wget https://dl.minio.io/client/mc/release/linux-amd64/mc
   chmod +x mc
 popd
+
+# useful alias for ./gradlew
+echo "alias gw=./gradlew" >> ~/.bashrc
