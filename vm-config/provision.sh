@@ -19,7 +19,7 @@ add-apt-repository -y ppa:openjdk-r/ppa
 apt-get update
 
 # Install cf client, curl, git, jq (json parser/prettyfier), siege (HTTP load tester)
-apt-get install -y build-essential cf-cli curl git grc httpie jq openjdk-8-jdk mongodb-org nginx rabbitmq-server siege unzip zip
+apt-get install -y build-essential cf-cli curl git graphviz grc httpie jq openjdk-8-jdk mongodb-org nginx rabbitmq-server siege unzip zip
 
 # configure rabbitmq, add a user that can be used remotely
 rabbitmq-plugins enable rabbitmq_management
